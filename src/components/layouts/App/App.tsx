@@ -1,15 +1,22 @@
-import React, {useState} from 'react'
-import reactLogo from 'assets/react.svg'
-import viteLogo from 'assets/vite.svg'
-import 'styles/styles.css';
+import React, { useState } from 'react';
+import reactLogo from 'assets/react.svg';
+import viteLogo from 'assets/vite.svg';
 import Cursor from "components/atoms/Cursor";
+import { CURSOR_SPEED } from "constants/animation";
+import { CURSOR_SIZE } from "constants/size";
+import useAnimatedCursor from "hooks/useAnimatedCursor";
+import 'styles/styles.css';
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const { cursorRef, size } = useAnimatedCursor(CURSOR_SPEED, CURSOR_SIZE);
 
   return (
       <>
-        <Cursor/>
+        <Cursor
+          size={size}
+          ref={cursorRef}
+        />
         <div className="App">
           <div>
             <a href="https://vitejs.dev" target="_blank">

@@ -7,12 +7,16 @@ interface ICursor {
 export const StyledCursor = styled.div<ICursor>`
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
+  
   position: fixed;
   top: 0;
   left: 0;
-  mix-blend-mode: difference;
-  pointer-events: none;
   z-index: 10000;
+
+  mix-blend-mode: difference;
+  
+  pointer-events: none;
+  
   will-change: transform;
 `;
 
